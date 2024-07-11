@@ -5,3 +5,7 @@
 `npm i`
 
 `npm run dev`
+
+
+# Github Page Deployment
+check [repo](https://github.com/gitname/react-gh-pages), noted that I am using vite so vite.config.js needs add base, check [here](https://vitejs.dev/guide/static-deploy.html)

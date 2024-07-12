@@ -1,0 +1,12 @@
+h3.site-header {
+    margin: 0;
+    font-weight: normal;
+    font-size: 32px;
+    text-align: center;
+}
+
+.description{
+    padding: 8px;
+    margin: 0;
+    text-align: center
+}

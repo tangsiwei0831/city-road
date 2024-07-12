@@ -1,10 +1,9 @@
-
+import FindPlace from './component/findplace.jsx'
 
 function App() {
-
   return (
     <div>
-      Hello world!!!
+      <FindPlace />
     </div>
   )
 }

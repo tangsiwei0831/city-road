@@ -4,10 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Draw all road in a city at once</title>
-    <script type="module" crossorigin src="/city-road/assets/index-BYAI3--j.js"></script>
-    <link rel="stylesheet" crossorigin href="/city-road/assets/index-BvTAg5LI.css">
+    <script type="module" crossorigin src="/city-road/assets/index-D53nkRgO.js"></script>
+    <link rel="stylesheet" crossorigin href="/city-road/assets/index-FfoDuEx8.css">
   </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+        background-color: #F7F2E8;
+        position: absolute;
+        overflow: hidden;
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        transition-timing-function: ease-out;
+        transition-property: background-color;
+        transition-duration: 3s;
+      }
+      #canvas, body{
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+  </style>
   <body>
+    <canvas id="canvas"></canvas>
     <div id="root"></div>
   </body>
 </html>

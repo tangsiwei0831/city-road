@@ -1,0 +1,9 @@
+#app {
+    margin: 8px;
+    max-height: 100vh;
+    position: absolute;
+    z-index: 1;
+    h3 {
+        font-weight: normal;
+    }
+}

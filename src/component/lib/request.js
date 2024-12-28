@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import Progress from './progress.js';
 
 export default function request(url, options) {

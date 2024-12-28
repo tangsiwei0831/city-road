@@ -12,9 +12,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "d3-geo": "^3.1.1",
     "ngraph.events": "^1.2.2",
+    "query-state": "^4.3.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tinycolor2": "^1.6.0",
+    "w-gl": "^0.21.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

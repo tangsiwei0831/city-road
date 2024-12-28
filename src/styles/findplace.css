@@ -23,7 +23,7 @@ input {
     &:focus {
       outline: none;
     }
-  }
+}
 
 h3.site-header {
     margin: 0;
@@ -91,4 +91,43 @@ h3.site-header {
 
 .loading svg{
   margin-right: 8px;
+}
+
+.suggestion {
+  display: block;
+  min-height: 64px;
+  align-items: center;
+  border-bottom: 1px solid #E9EAED;
+  display: flex;
+  padding: 0 10px;
+  text-decoration: none;
+  color: #ff4081
+}
+
+.suggestions {
+  position: relative;
+  background: white;
+  .note {
+    font-size: 10px;
+    font-style: italic;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: calc(100vh - 128px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+.prompt {
+  padding: 4px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.load-padding {
+  padding-left: 16px;
 }

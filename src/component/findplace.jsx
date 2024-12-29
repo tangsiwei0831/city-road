@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import findBoundaryByName from './lib/findBoundByName';
 import LoadingIcon from './LoadingIcon';
-import appState from './lib/appState';
-import queryState from './lib/appState';
+import PropTypes from 'prop-types';
 import LoadOptions from './lib/loadOptions';
 import Progress from './lib/progress';
 import '../styles/findplace.css'
@@ -158,7 +157,7 @@ function FindPlace({ onLoaded }) {
                 type='submit'
                 className='search-submit'
                 href='#'
-                onClick={handleSubmit}>
+                onClick={(e) => {e.preventDefault(); handleSubmit();}}>
                 Find City Bounds
             </a>)}
         </form>
@@ -225,6 +224,10 @@ function FindPlace({ onLoaded }) {
     )
 }
 
+// Define prop types
+FindPlace.propTypes = {
+    onLoaded: PropTypes.func.isRequired,  // or PropTypes.func (if not required)
+  };
 
 function formatNumber(x) {
     if (!Number.isFinite(x)) return 'N/A';

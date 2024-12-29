@@ -196,7 +196,7 @@ export default function createScene(canvas) {
     return toSVG(sceneAPI, Object.assign({}, {name}, options));
   }
 
-  function triggerTransform(t) {
+  function triggerTransform() {
     bus.fire('scene-transform');
   }
 

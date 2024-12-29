@@ -17,6 +17,7 @@ const App = () => {
   const [backgroundColor, setBackgroundColor] = useState(config.getBackgroundColor().toRgb());
   const [labelColor, setLabelColor] = useState(config.getLabelColor().toRgb());
   const [layers, setLayers] = useState([])
+  const [showSettings, setShowSettings] = useState(false);
 
   const onGridLoaded = (grid) => {
       if(grid.isArea){
@@ -86,7 +87,7 @@ const App = () => {
 
     newLayers.push(
       new ColorLayer('background', backgroundColor, setBackgroundColor),
-      new ColorLayer('background', labelColor, newColor => setLabelColor(newColor)),
+      new ColorLayer('labels', labelColor, newColor => setLabelColor(newColor)),
     )
 
     setLayers(newLayers);
@@ -98,11 +99,72 @@ const App = () => {
     setZazzleLink(null);
   }
 
+  const toggleSetting = () => {
+    setShowSettings(!showSettings);
+  }
+
+  const toPNGFile = () => {
+    scene.saveToPNG(name)
+  }
+
+  const toSVGFile = () => {
+    scene.saveToSVG(name)
+  }
+
+  const startOver = () => {
+    appState.unset('areaId');
+    appState.unsetPlace();
+    appState.unset('q');
+    appState.enableCache();
+
+    dispose();
+    setPlaceFound(false);
+    setZazzleLink(false);
+    setShowSettings(false);
+    setBackgroundColor(config.getBackgroundColor.toRgb());
+    setLabelColor(config.getLabelColor().toRgb());
+
+    document.body.style.backgroundColor = config.getBackgroundColor.toRgbString();
+    getCanvas().style.visibility = 'hidden';
+  }
+
+  const dispose = () => {
+    if(scene){
+      scene.dispose();
+      window.scene = null;
+    }
+  }
+
   return (
     <div>
       {!placeFound && <FindPlace onLoaded={onGridLoaded} />}
+      {placeFound && (
+        <div id="app">
+          <div className="controls">
+            <a href="#" className="print-button" onClick={toggleSetting}>Customize...</a>
+            <a href="#" className="try-another" onClick={startOver}>Try another city</a>
+          </div>
+          {showSettings && (
+            <div className="print-window">
+              <h3>Export</h3>
+              <div className="row">
+                <a href="#" onClick={toPNGFile} className="col">As an image (.png)</a>
+                <span className="col c-2">
+                  Save the current screen as a raster image
+                </span>
+              </div>
+
+              <div className="row">
+                <a href="#" onClick={toSVGFile} className="col">As a vector (.svg)</a>
+                <span className="col c-2">
+                  Save the current screen as a vector image
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
-    // <FindPlace onLoaded={onGridLoaded} />
   )
 }
 

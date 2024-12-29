@@ -1,5 +1,3 @@
-import tinycolor from "tinycolor2";
-
 class ColorLayer {
     constructor(name, color, callback) {
       this.name = name;

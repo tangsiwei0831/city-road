@@ -108,3 +108,32 @@ a:focus {
 .c-2 {
     flex: 2
 }
+
+@media (max-width: small-screen) {
+    #app {
+      width: 100%;
+      margin: 0;
+  
+      .preview-actions,.error,
+      .controls, .print-window {
+        width: 100%;
+      }
+      .loading-container {
+        font-size: 12px;
+      }
+  
+      .print-window {
+        font-size: 14px;
+      }
+  
+    }
+    .city-name  {
+      right: 8px;
+      bottom: 24px;
+    }
+    .license  {
+      right: 8px;
+      bottom: 8px;
+    }
+}
+  

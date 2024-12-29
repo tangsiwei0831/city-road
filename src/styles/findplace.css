@@ -131,3 +131,23 @@ h3.site-header {
 .load-padding {
   padding-left: 16px;
 }
+
+@media (max-width: small-screen) {
+  .find-place {
+    width: 100%;
+  }
+  .find-place.centered {
+    top: 8px;
+    left: 0;
+    transform: none;
+  }
+  .message {
+    font-size: 12px;
+  }
+  .prompt {
+    font-size: 12px;
+    .note {
+      font-size: 9px;
+    }
+  }
+}

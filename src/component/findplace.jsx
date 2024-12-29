@@ -28,12 +28,14 @@ function FindPlace({ onLoaded }) {
     }, [])
     
     const handleSubmit = () => {
+        setSuggestions([])
         setNoRoads(false)
-        setLoading('Searching cities tha match your query...')
+        setLoading('Searching cities that match your query...')
         findBoundaryByName(enteredInput)
             .then(suggestions => {
                 setLoading(null);
                 setHideInput(suggestions && suggestions.length);
+                console.log(suggestions && suggestions.length)
                 if(boxInTheMiddle){
                     setBoxInTheMiddle(false);
                     setTimeout(() => {
@@ -149,7 +151,7 @@ function FindPlace({ onLoaded }) {
                 className='query-input'
                 placeholder='Ener a city name to start' 
                 value={enteredInput}
-                onChange={(e) => setEnteredInput(e.target.value)}
+                onChange={(e) => {setEnteredInput(e.target.value); setHideInput(false);}}
                 ref={inputRef}>
             </input>
             {enteredInput && !hideInput && (
@@ -212,6 +214,7 @@ function FindPlace({ onLoaded }) {
             <div className='loading message shadow'>
                 <LoadingIcon />
                 <span>{loading}</span>
+                <a href='#' className='cancel-request'>cancel</a>
                 {stillLoading > 0 && (<div className='load-padding'>
                     Still loading ...
                 </div>)}

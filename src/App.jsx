@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react"
 import FindPlace from "./component/findplace"
 import appState from "./component/lib/appState";
@@ -13,7 +14,6 @@ const App = () => {
   const [placeFound, setPlaceFound] = useState(false);
   const [name, setName] = useState('');
   const [scene, setScene] = useState(null);
-  const [zazzleLink, setZazzleLink] = useState(null);
   const [backgroundColor, setBackgroundColor] = useState(config.getBackgroundColor().toRgb());
   const [labelColor, setLabelColor] = useState(config.getLabelColor().toRgb());
   const [layers, setLayers] = useState([])
@@ -78,7 +78,6 @@ const App = () => {
       }
       const layerColor = tinycolor.fromRatio(layer.color);
       newLayers.push(new ColorLayer(name, layerColor, newColor => {
-        setZazzleLink(null);
         layer.color = toRatio(newColor);
         renderer.renderFrame();
         scene.fire('color-change', layer);
@@ -96,7 +95,6 @@ const App = () => {
       return {r:c.r/0xff, g:c.g/0xff, b: c.b/0xff, a: c.a};
     }
 
-    setZazzleLink(null);
   }
 
   const toggleSetting = () => {
@@ -119,7 +117,6 @@ const App = () => {
 
     dispose();
     setPlaceFound(false);
-    setZazzleLink(false);
     setShowSettings(false);
     setBackgroundColor(config.getBackgroundColor.toRgb());
     setLabelColor(config.getLabelColor().toRgb());
